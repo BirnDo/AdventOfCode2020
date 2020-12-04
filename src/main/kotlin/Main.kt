@@ -4,7 +4,8 @@
 fun main() {
     //dayOne()
     //dayTwo()
-    dayThree()
+    //dayThree()
+    //dayFour()
 }
 
 /**
@@ -38,4 +39,15 @@ fun dayThree() {
     val geography = readSlope("src/main/resources/Day3.txt")
     println("Encountered Trees Part 1: ${encounteredTreesSlopeThree(geography)}")
     println("Encountered Trees multiplied: ${encounteredTreesSlopes(geography)}")
+}
+
+/**
+ * Solves Problem of day four
+ */
+fun dayFour() {
+    println()
+    println("- Day 4 -------------------------------------")
+    val passports = readPassports("src/main/resources/Day4.txt")
+    println("valid passports: ${validatePassports(passports)}")
+    println("strict valid passports: ${strictPasswordValidation(passports)}")
 }
