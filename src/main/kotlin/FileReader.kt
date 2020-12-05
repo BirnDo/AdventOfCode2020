@@ -79,11 +79,10 @@ fun readPassports(fileName: String): List<Passport>{
     }
     appendStrings.add(insert)
     appendStrings.removeAt(i)
-    var splitColon = ArrayList<Pair<String, String>>()
     appendStrings.forEach { it ->
         val splitLeerzeichen = it.split(" ").toMutableList()
         splitLeerzeichen.removeAt(splitLeerzeichen.lastIndex)
-        splitColon = ArrayList<Pair<String, String>>()
+        val splitColon = ArrayList<Pair<String, String>>()
         splitLeerzeichen.map { x -> Pair(x.split(":")[0], x.split(":")[1]) }.forEach { x -> splitColon.add(x) }
         val pt = Passport(null, null, null, null, null, null, null, null)
         splitColon.forEach {
@@ -101,4 +100,13 @@ fun readPassports(fileName: String): List<Passport>{
         passports.add(pt)
     }
     return passports
+}
+
+/**
+ * Reads the Boarding pass directions from a file
+ * @param fileName The path to the data file
+ * @return A list with all boarding passes
+ */
+fun readBoardingPasses(fileName: String): List<String> {
+    return File(fileName).readLines()
 }

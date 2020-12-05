@@ -1,3 +1,5 @@
+import dayFour as dayFour
+
 /**
  * Main method to test the problems of https://adventofcode.com/2020
  */
@@ -6,6 +8,7 @@ fun main() {
     //dayTwo()
     //dayThree()
     //dayFour()
+    //dayFive()
 }
 
 /**
@@ -50,4 +53,15 @@ fun dayFour() {
     val passports = readPassports("src/main/resources/Day4.txt")
     println("valid passports: ${validatePassports(passports)}")
     println("strict valid passports: ${strictPasswordValidation(passports)}")
+}
+
+/**
+ * Solves the problem of day five
+ */
+fun dayFive(){
+    println()
+    println("- Day 5 -------------------------------------")
+    val passes = readBoardingPasses("src/main/resources/Day5.txt")
+    println("Highest Boarding pass ID : ${getIds(passes).maxByOrNull { it }}")
+    println("Your Boarding pass ID: ${getYourId(getIds(passes))}")
 }
