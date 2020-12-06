@@ -9,6 +9,7 @@ fun main() {
     //dayThree()
     //dayFour()
     //dayFive()
+    //daySix()
 }
 
 /**
@@ -64,4 +65,15 @@ fun dayFive(){
     val passes = readBoardingPasses("src/main/resources/Day5.txt")
     println("Highest Boarding pass ID : ${getIds(passes).maxByOrNull { it }}")
     println("Your Boarding pass ID: ${getYourId(getIds(passes))}")
+}
+
+/**
+ * Solves the problem of day six
+ */
+fun daySix(){
+    println()
+    println("- Day 6 -------------------------------------")
+    val answers = readAnswers("src/main/resources/Day6.txt")
+    println("Different Answers per group: ${getDifferentGroupAnswers(answers)}")
+    println("Same Answers per group: ${getSameAnswersPerGroup(answers)}")
 }

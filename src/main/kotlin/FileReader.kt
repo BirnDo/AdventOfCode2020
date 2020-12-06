@@ -5,7 +5,7 @@ import java.io.File
  * @param fileName The path to the data file
  * @return a list of integers
  */
-fun readIntegers(fileName: String): List<Int>{
+fun readIntegers(fileName: String): List<Int> {
     val numbers = ArrayList<Int>()
     File(fileName).forEachLine { numbers.add(it.toInt()) }
     return numbers
@@ -33,19 +33,19 @@ fun readPasswords(fileName: String): List<Password> {
  * @param fileName The path to the data file
  * @return a list of the geography of the slope
  */
-fun readSlope(fileName: String): List<String>{
+fun readSlope(fileName: String): List<String> {
     val list = ArrayList<String>()
     var lines = 0
     File(fileName).forEachLine { lines++ }
     var lineSize = 0
     File(fileName).forEachLine { lineSize = it.length }
     var repeats = 1
-    while (lineSize*repeats < lines*7){
+    while (lineSize * repeats < lines * 7) {
         repeats++
     }
     File(fileName).forEachLine {
         var addString = ""
-        for(i in 1..repeats){
+        for (i in 1..repeats) {
             addString += it
         }
         list.add(addString)
@@ -58,7 +58,7 @@ fun readSlope(fileName: String): List<String>{
  * @param fileName The path to the data file
  * @return List of passports
  */
-fun readPassports(fileName: String): List<Passport>{
+fun readPassports(fileName: String): List<Passport> {
     val strings = ArrayList<String>()
     val appendStrings = ArrayList<String>()
     val passports = ArrayList<Passport>()
@@ -67,7 +67,7 @@ fun readPassports(fileName: String): List<Passport>{
     var insert = ""
     appendStrings.add("")
     strings.forEach {
-        if(it == ""){
+        if (it == "") {
             appendStrings.add(i, insert)
             i++
             insert = ""
@@ -86,7 +86,7 @@ fun readPassports(fileName: String): List<Passport>{
         splitLeerzeichen.map { x -> Pair(x.split(":")[0], x.split(":")[1]) }.forEach { x -> splitColon.add(x) }
         val pt = Passport(null, null, null, null, null, null, null, null)
         splitColon.forEach {
-            when(it.first) {
+            when (it.first) {
                 "byr" -> pt.byr = it.second
                 "iyr" -> pt.iyr = it.second
                 "eyr" -> pt.eyr = it.second
@@ -109,4 +109,28 @@ fun readPassports(fileName: String): List<Passport>{
  */
 fun readBoardingPasses(fileName: String): List<String> {
     return File(fileName).readLines()
+}
+
+/**
+ * Reads the answers given from the different groups from a file
+ * @param fileName The path to the data file
+ * @return A list of answers paired with the size of the group
+ */
+fun readAnswers(fileName: String): List<Pair<String, Int>> {
+    val lines = File(fileName).readLines()
+    val appendLines = ArrayList<Pair<String,Int>>()
+    var insert = ""
+    var i = 0
+    lines.forEach {
+        if (it == "") {
+            appendLines.add(Pair(insert, i))
+            insert = ""
+            i=0
+        } else {
+            insert += it
+            i++
+        }
+    }
+    appendLines.add(Pair(insert, i))
+    return appendLines
 }
