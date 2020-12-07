@@ -1,3 +1,8 @@
+/**
+ * helper class for colored bags
+ * @param color the color of the bag
+ * @param bags a list of bags with a paired quantity
+ */
 data class Bag(var color: String, var bags: List<Pair<Bag, Int>>)
 
 /**
