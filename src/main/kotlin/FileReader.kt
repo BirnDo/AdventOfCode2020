@@ -134,3 +134,28 @@ fun readAnswers(fileName: String): List<Pair<String, Int>> {
     appendLines.add(Pair(insert, i))
     return appendLines
 }
+
+/**
+ * reads all Baggage rules
+ * @param fileName The path to the data file
+ * @return A list of Baggage rules
+ */
+fun readAllBags(fileName: String): List<Bag>{
+    val allLines = File(fileName).readLines()
+    val bags = ArrayList<Bag>()
+    allLines.forEach {
+        val split = it.split("bags contain")
+        if(split[1].contains("no other bags.")){
+            bags.add(Bag(split[0].trim(), ArrayList()))
+        } else {
+            val subBags = ArrayList<Pair<Bag, Int>>()
+            val split2 = split[1].split(",")
+            split2.forEach { x ->
+                val split3 = x.split(" ")
+                subBags.add(Pair(Bag("${split3[2]} ${split3[3]}".trim(), ArrayList()), split3[1].toInt()))
+            }
+            bags.add(Bag(split[0].trim(), subBags))
+        }
+    }
+    return bags
+}

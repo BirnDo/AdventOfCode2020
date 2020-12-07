@@ -10,6 +10,7 @@ fun main() {
     //dayFour()
     //dayFive()
     //daySix()
+    daySeven()
 }
 
 /**
@@ -76,4 +77,15 @@ fun daySix(){
     val answers = readAnswers("src/main/resources/Day6.txt")
     println("Different Answers per group: ${getDifferentGroupAnswers(answers)}")
     println("Same Answers per group: ${getSameAnswersPerGroup(answers)}")
+}
+
+/**
+ * Solves the problem of day seven
+ */
+fun daySeven() {
+    println()
+    println("- Day 7 -------------------------------------")
+    val bags = readAllBags("src/main/resources/Day7.txt")
+    println("Can hold gold Bags: ${canTakeGoldBag(bags)}")
+    println("A golden bag takes: ${getSubBags(bags, "shiny gold")-1} subBags")
 }
