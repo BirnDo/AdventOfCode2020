@@ -159,3 +159,12 @@ fun readAllBags(fileName: String): List<Bag>{
     }
     return bags
 }
+
+/**
+ * reads all lines of the boot code
+ * @param fileName The path to the data file
+ * @return A list of instructions
+ */
+fun readBootCode(fileName: String): List<String> {
+    return File(fileName).readLines()
+}

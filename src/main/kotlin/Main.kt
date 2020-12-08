@@ -10,7 +10,8 @@ fun main() {
     //dayFour()
     //dayFive()
     //daySix()
-    daySeven()
+    //daySeven()
+    dayEight()
 }
 
 /**
@@ -88,4 +89,15 @@ fun daySeven() {
     val bags = readAllBags("src/main/resources/Day7.txt")
     println("Can hold gold Bags: ${canTakeGoldBag(bags)}")
     println("A golden bag takes: ${getSubBags(bags, "shiny gold")-1} subBags")
+}
+
+/**
+ * Solves the problem of day eight
+ */
+fun dayEight() {
+    println()
+    println("- Day 8 -------------------------------------")
+    val lines = readBootCode("src/main/resources/Day8.txt")
+    println("Acc result: ${executeBootCode(lines)}")
+    println("ACC after fixed corruption: ${fixCorruption(lines)}")
 }
