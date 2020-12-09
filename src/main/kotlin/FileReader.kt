@@ -168,3 +168,12 @@ fun readAllBags(fileName: String): List<Bag>{
 fun readBootCode(fileName: String): List<String> {
     return File(fileName).readLines()
 }
+
+/**
+ * reads all numbers from the XMAS transmission
+ * @param fileName The path to the data file
+ * @return A list of numbers
+ */
+fun readNumbers(fileName: String): List<Long> {
+    return File(fileName).readLines().map { it.toLong() }
+}

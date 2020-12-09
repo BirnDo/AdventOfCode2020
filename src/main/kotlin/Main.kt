@@ -11,7 +11,8 @@ fun main() {
     //dayFive()
     //daySix()
     //daySeven()
-    dayEight()
+    //dayEight()
+    dayNine()
 }
 
 /**
@@ -100,4 +101,15 @@ fun dayEight() {
     val lines = readBootCode("src/main/resources/Day8.txt")
     println("Acc result: ${executeBootCode(lines)}")
     println("ACC after fixed corruption: ${fixCorruption(lines)}")
+}
+
+/**
+ * Solves the problem of day nine
+ */
+fun dayNine() {
+    println()
+    println("- Day 9 -------------------------------------")
+    val numbers = readNumbers("src/main/resources/Day9.txt")
+    println("Wrong number: ${findWrongNumber(numbers)}")
+    println("Contiguous numbers added: ${findContiguousNumbers(numbers)}")
 }
