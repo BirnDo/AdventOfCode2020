@@ -12,7 +12,8 @@ fun main() {
     //daySix()
     //daySeven()
     //dayEight()
-    dayNine()
+    //dayNine()
+    dayTen()
 }
 
 /**
@@ -112,4 +113,15 @@ fun dayNine() {
     val numbers = readNumbers("src/main/resources/Day9.txt")
     println("Wrong number: ${findWrongNumber(numbers)}")
     println("Contiguous numbers added: ${findContiguousNumbers(numbers)}")
+}
+
+/**
+ * Solves the problem of day nine
+ */
+fun dayTen() {
+    println()
+    println("- Day 10 ------------------------------------")
+    val adapters = readAdapters("src/main/resources/Day10.txt").toMutableList()
+    println("Joltage differences multiplied: ${getJoltageDifferences(adapters)}")
+    println("Part 2 not finished")
 }

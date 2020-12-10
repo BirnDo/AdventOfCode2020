@@ -118,14 +118,14 @@ fun readBoardingPasses(fileName: String): List<String> {
  */
 fun readAnswers(fileName: String): List<Pair<String, Int>> {
     val lines = File(fileName).readLines()
-    val appendLines = ArrayList<Pair<String,Int>>()
+    val appendLines = ArrayList<Pair<String, Int>>()
     var insert = ""
     var i = 0
     lines.forEach {
         if (it == "") {
             appendLines.add(Pair(insert, i))
             insert = ""
-            i=0
+            i = 0
         } else {
             insert += it
             i++
@@ -140,12 +140,12 @@ fun readAnswers(fileName: String): List<Pair<String, Int>> {
  * @param fileName The path to the data file
  * @return A list of Baggage rules
  */
-fun readAllBags(fileName: String): List<Bag>{
+fun readAllBags(fileName: String): List<Bag> {
     val allLines = File(fileName).readLines()
     val bags = ArrayList<Bag>()
     allLines.forEach {
         val split = it.split("bags contain")
-        if(split[1].contains("no other bags.")){
+        if (split[1].contains("no other bags.")) {
             bags.add(Bag(split[0].trim(), ArrayList()))
         } else {
             val subBags = ArrayList<Pair<Bag, Int>>()
@@ -176,4 +176,13 @@ fun readBootCode(fileName: String): List<String> {
  */
 fun readNumbers(fileName: String): List<Long> {
     return File(fileName).readLines().map { it.toLong() }
+}
+
+/**
+ * reads all adapters
+ * @param fileName The path to the data file
+ * @return A list of numbers
+ */
+fun readAdapters(fileName: String): List<Int> {
+    return File(fileName).readLines().map { it.toInt() }
 }
