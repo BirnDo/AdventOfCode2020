@@ -122,6 +122,8 @@ fun dayTen() {
     println()
     println("- Day 10 ------------------------------------")
     val adapters = readAdapters("src/main/resources/Day10.txt").toMutableList()
+    adapters.add(0)
+    adapters.add(adapters.maxOrNull()!!+3)
     println("Joltage differences multiplied: ${getJoltageDifferences(adapters)}")
-    println("Part 2 not finished")
+    println("Different Combinations: ${getDifferentCombinations(adapters.sorted())}")
 }
